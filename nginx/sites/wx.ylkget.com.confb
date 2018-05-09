@@ -1,11 +1,11 @@
 server {
 
-    listen 80 default_server;
-    listen [::]:80 default_server ipv6only=on;
+    listen 80;
+    listen [::]:80;
 
-    server_name laradock.com;
-    root /var/www/public;
-    index index.php index.html index.htm; 
+    server_name wx.ylkget.com;
+    root /var/www/larapi/public;
+    index index.php index.html index.htm;
 
     location / {
          try_files $uri $uri/ /index.php$is_args$args;
@@ -31,4 +31,7 @@ server {
         root /var/www/letsencrypt/;
         log_not_found off;
     }
+
+    error_log /var/log/nginx/larapi_error.log;
+    access_log /var/log/nginx/larapi_access.log;
 }
